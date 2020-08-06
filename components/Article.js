@@ -112,7 +112,7 @@ articleParagraph2.textContent = articleObj.secondParagraph;
 articleParagraph3.textContent = articleObj.thirdParagraph;
 articleButton.textContent = '\u25bc';
 article.textContent = articleObj.article;
-closeButton.textContent = 'x';
+closeButton.textContent = '\u2718';
 
 // Add Classes to Elements
 article.classList.add('article');
@@ -123,6 +123,10 @@ closeButton.classList.add('close')
 
 // Button Event Listener
 articleButton.addEventListener('click', (event) => {
+  article.classList.toggle('article-open');
+})
+
+closeButton.addEventListener('click', (event) => {
   article.classList.toggle('article-open');
 })
 
@@ -144,6 +148,7 @@ const articleList = document.querySelector('.articles');
 data.forEach( pieceOfData => {
   articleList.append(articleMaker(pieceOfData))
 })
+
 
 
 /*
