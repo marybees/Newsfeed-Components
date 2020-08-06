@@ -10,7 +10,7 @@ let menuItems = [
 ];
 
 function menuMaker(menuArray) {
-  
+
   // Create Menu Items
   const menuItems = document.createElement('ul');
   menuArray.forEach(item => {
@@ -19,7 +19,7 @@ function menuMaker(menuArray) {
     menuItems.appendChild(menuList);
   });
 
-// Create Menu Element, Add Class & Append
+// Create Menu Element, Add Class & Append Menu Items
   const menu = document.createElement('div');
   menu.classList.add('menu');
   menu.appendChild(menuItems);
@@ -40,6 +40,7 @@ function menuMaker(menuArray) {
   }
 
   menuMaker(menuItems);
+  
 /* 
   Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
 

@@ -143,13 +143,23 @@ article.appendChild(closeButton);
 return article;
 }
 
+//Create New Article Object
+const newArticle = {title: 'This is a New Article',
+date: 'Aug 6th, 2020',
+firstParagraph: `This is the content in the 1st paragraph. `,
+secondParagraph: `This is the content in the 2nd paragraph.`,
+thirdParagraph: `This is the content in the 3rd paragraph.`}
+
+//Add New Article Object to the End of the Data Array
+data.push(newArticle);
+
+// Select .articles Element
 const articleList = document.querySelector('.articles');
 
-data.forEach( pieceOfData => {
+// Pass in data as an argument and loop through each index populating the value at that index
+data.forEach(pieceOfData => {
   articleList.append(articleMaker(pieceOfData))
 })
-
-
 
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
