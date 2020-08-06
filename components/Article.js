@@ -89,6 +89,78 @@ const data = [
   }
 ];
 
+function articleMaker(articleObj) {
+
+// console.log(articleObj);
+
+// Create Elements
+const article = document.createElement('div');
+const articleTitle = document.createElement('h2');
+const articleDate = document.createElement('p')
+const articleParagraph1 = document.createElement('p')
+const articleParagraph2 = document.createElement('p')
+const articleParagraph3 = document.createElement('p')
+const articleButton = document.createElement('span');
+const openButton = document.createElement('span');
+const closeButton = document.createElement('span');
+
+// Text Content
+articleTitle.textContent = articleObj.title;
+articleDate.textContent = articleObj.date;
+articleParagraph1.textContent = articleObj.firstParagraph;
+articleParagraph2.textContent = articleObj.secondParagraph;
+articleParagraph3.textContent = articleObj.thirdParagraph;
+articleButton.textContent = '\u25bc';
+article.textContent = articleObj.article;
+closeButton.textContent = '\u2718';
+
+// Add Classes to Elements
+article.classList.add('article');
+articleDate.classList.add('date');
+articleButton.classList.add('expandButton')
+openButton.classList.add('article-open')
+closeButton.classList.add('close')
+
+// Button Event Listener
+articleButton.addEventListener('click', (event) => {
+  article.classList.toggle('article-open');
+})
+
+closeButton.addEventListener('click', (event) => {
+  article.classList.toggle('article-open');
+})
+
+// Element Structure
+article.appendChild(articleTitle);
+article.appendChild(articleDate);
+article.appendChild(articleParagraph1);
+article.appendChild(articleParagraph2);
+article.appendChild(articleParagraph3);
+article.appendChild(articleButton);
+article.appendChild(openButton);
+article.appendChild(closeButton);
+
+return article;
+}
+
+//Create New Article Object
+const newArticle = {title: 'This is a New Article',
+date: 'Aug 6th, 2020',
+firstParagraph: `This is the content in the 1st paragraph. `,
+secondParagraph: `This is the content in the 2nd paragraph.`,
+thirdParagraph: `This is the content in the 3rd paragraph.`}
+
+//Add New Article Object to the End of the Data Array
+data.push(newArticle);
+
+// Select .articles Element
+const articleList = document.querySelector('.articles');
+
+// Pass in data as an argument and loop through each index populating the value at that index
+data.forEach(pieceOfData => {
+  articleList.append(articleMaker(pieceOfData))
+})
+
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
